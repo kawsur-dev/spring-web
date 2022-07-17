@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Registration Confirmation</title>
@@ -14,7 +15,9 @@
 
 <h1>Registration Confirmation</h1>
 
-First Name: <%= request.getParameter("firstname") %>
+<%--First Name: <%= request.getParameter("firstname") %>--%>
+
+First Name: ${param.firstname}
 
 <br><br>
 
