@@ -6,12 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/external.css">
 </head>
 <body>
-<h1>Welcome to Dashboard!</h1>
+<h1 id="i1">Welcome to Dashboard!</h1>
 
 <%--<form action="process/v1" method="post">
     Please enter your name: <input type="text" name="fullname">
