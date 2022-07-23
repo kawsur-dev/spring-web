@@ -3,6 +3,7 @@ package controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,5 +28,14 @@ public class DashboardController {
        }
        model.addAttribute("username", fullname);
        return "confirmation";
+    }
+
+    @RequestMapping("/process/v3")
+    public String processThree(@RequestParam("fullname") String fullname, Model model) {
+        if (! fullname.isEmpty()) {
+            fullname = fullname.toUpperCase();
+        }
+        model.addAttribute("username", fullname);
+        return "confirmation";
     }
 }
