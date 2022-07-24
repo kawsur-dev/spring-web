@@ -13,11 +13,13 @@
 </head>
 <body>
 
-Welcome, ${param.fullname}
+<%--Welcome, ${param.fullname}
 
-Welcome, ${username}
+Welcome, ${username}--%>
 
 <%-- request.getParameter("fullname") --%>
+
+Welcome, ${user.firstname} ${user.lastname}
 
 </body>
 </html>
