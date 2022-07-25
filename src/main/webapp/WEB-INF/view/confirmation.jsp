@@ -19,7 +19,7 @@ Welcome, ${username}--%>
 
 <%-- request.getParameter("fullname") --%>
 
-Welcome, ${user.firstname} ${user.lastname}
+Welcome, ${user.firstname} ${user.lastname} ${user.gender} ${user.country.name}
 
 </body>
 </html>
