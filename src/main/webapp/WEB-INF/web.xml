@@ -22,7 +22,7 @@
 
   <servlet>
     <servlet-name>first</servlet-name>
-    <jsp-file>/first.jsp</jsp-file>
+    <jsp-file>/first.org.myapp.jsp</jsp-file>
   </servlet>
 
   <servlet-mapping>
