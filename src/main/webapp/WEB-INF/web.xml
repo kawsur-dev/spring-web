@@ -20,14 +20,4 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <servlet>
-    <servlet-name>first</servlet-name>
-    <jsp-file>/first.org.myapp.jsp</jsp-file>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>first</servlet-name>
-    <url-pattern>/first</url-pattern>
-  </servlet-mapping>
-
 </web-app>
