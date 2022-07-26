@@ -1,9 +1,9 @@
-package org.myapp.dao;
+package com.dao;
 
+import com.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.myapp.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

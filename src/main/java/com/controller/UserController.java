@@ -1,7 +1,7 @@
-package org.myapp.controller;
+package com.controller;
 
-import org.myapp.model.User;
-import org.myapp.service.UserService;
+import com.model.User;
+import com.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

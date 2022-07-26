@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="com.util.SortUtils" %>
 <%@ page isELIgnored="false" %>
 
 <html>
@@ -16,7 +15,7 @@
     <title>User List</title>
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/style.css" />
+          href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 
@@ -41,13 +40,9 @@
             <input type="submit" value="Search" class="add-button" />
         </form:form>
 
-        <c:url var="sortLinkFirstName" value="/user/list">
-            <c:param name="sortKey" value="<%= Integer.toString(SortUtils.FIRST_NAME) %>" />
-        </c:url>
+        <c:url var="sortLinkFirstName" value="/user/list" />
 
-        <c:url var="sortLinkLastName" value="/user/list">
-            <c:param name="sortKey" value="<%= Integer.toString(SortUtils.LAST_NAME) %>" />
-        </c:url>
+        <c:url var="sortLinkLastName" value="/user/list" />
 
         <table>
             <tr>
