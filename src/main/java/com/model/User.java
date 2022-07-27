@@ -20,19 +20,9 @@ public class User {
     @NotNull
     private String lastName;
 
-    public User() {
-    }
-
-    public User(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public User(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    @OneToOne
+    @JoinColumn(name = "user_detail_id")
+    private UserDetail userDetail;
 
     public int getId() {
         return id;
@@ -58,12 +48,21 @@ public class User {
         this.lastName = lastName;
     }
 
+    public UserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", userDetail=" + userDetail +
                 '}';
     }
 }

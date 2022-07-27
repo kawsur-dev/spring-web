@@ -12,7 +12,7 @@
 
 <html>
 <head>
-    <title>User List</title>
+    <title>User Detail List</title>
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/css/style.css"/>
@@ -21,7 +21,7 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>User List</h2>
+        <h2>User Detail List</h2>
     </div>
 </div>
 
@@ -29,51 +29,42 @@
 
     <div id="content">
 
-        <input type="button" value="Add User"
+        <input type="button" value="Add User Detail"
                onclick="window.location.href='create'; return false;"
                class="add-button">
 
         <br><br>
 
-        <form:form action="search" method="GET">
-            Search user by firstname: <input type="text" name="searchValue"/>
-            <input type="submit" value="Search" class="add-button"/>
-        </form:form>
-
         <table>
             <tr>
-                <th><a>First Name</a></th>
-                <th><a>Last Name</a></th>
                 <th><a>Father Name</a></th>
                 <th><a>Mother Name</a></th>
                 <th>Action</th>
             </tr>
 
-            <c:forEach var="user" items="${users}">
+            <c:forEach var="userDetail" items="${userDetails}">
 
-                <c:url var="updateLink" value="/user/update">
-                    <c:param name="userId" value="${user.id}"/>
+                <c:url var="updateLink" value="/user/detail/update">
+                    <c:param name="userDetailId" value="${userDetail.id}"/>
                 </c:url>
 
-                <c:url var="deleteLink" value="/user/delete">
-                    <c:param name="userId" value="${user.id}"/>
+                <c:url var="deleteLink" value="/user/detail/delete">
+                    <c:param name="userDetailId" value="${userDetail.id}"/>
                 </c:url>
 
                 <tr>
-                    <td> ${user.firstName} </td>
-                    <td> ${user.lastName} </td>
-                    <td> ${user.userDetail.fatherName} </td>
-                    <td> ${user.userDetail.motherName} </td>
+                    <td> ${userDetail.fatherName} </td>
+                    <td> ${userDetail.motherName} </td>
                     <td>
                         <a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a>
                     </td>
                 </tr>
+
             </c:forEach>
         </table>
 
-        <a href="${pageContext.request.contextPath}/user/detail/list">User Detail List</a>
+        <a href="${pageContext.request.contextPath}/user/list">User List</a>
     </div>
 </div>
-
 </body>
 </html>

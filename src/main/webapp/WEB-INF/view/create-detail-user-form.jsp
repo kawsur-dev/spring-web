@@ -20,33 +20,24 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>User Form</h2>
+        <h2>User Detail Form</h2>
     </div>
 </div>
 
 <div id="container">
     <h3>Save User</h3>
-    <form:form action="create" modelAttribute="user" method="POST">
+    <form:form action="create" modelAttribute="userDetail" method="POST">
         <table>
             <tbody>
             <tr>
-                <td><label>First name:</label></td>
-                <td><form:input path="firstName"/></td>
-                <td><form:errors path="firstName"/></td>
+                <td><label>Father Name:</label></td>
+                <td><form:input path="fatherName"/></td>
+                <td><form:errors path="fatherName"/></td>
             </tr>
             <tr>
-                <td><label>Last name:</label></td>
-                <td><form:input path="lastName"/></td>
-                <td><form:errors path="firstName"/></td>
-            </tr>
-            <tr>
-                <td><label>User Detail:</label></td>
-                <td>
-                    <form:select path="userDetail">
-                        <form:options items="${userDetails}" itemValue="id" itemLabel="fatherName"/>
-                    </form:select>
-                </td>
-                <td><form:errors path="userDetail"/></td>
+                <td><label>Mother Name:</label></td>
+                <td><form:input path="motherName"/></td>
+                <td><form:errors path="motherName"/></td>
             </tr>
             <tr>
                 <td><label></label></td>
@@ -57,7 +48,7 @@
     </form:form>
 
     <p>
-        <a href="${pageContext.request.contextPath}/user/list">Back to List</a>
+        <a href="${pageContext.request.contextPath}/user/detail/list">Back to List</a>
     </p>
 
 </div>
