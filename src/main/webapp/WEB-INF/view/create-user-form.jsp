@@ -37,7 +37,7 @@
             <tr>
                 <td><label>Last name:</label></td>
                 <td><form:input path="lastName"/></td>
-                <td><form:errors path="firstName"/></td>
+                <td><form:errors path="lastName"/></td>
             </tr>
             <tr>
                 <td><label></label></td>
