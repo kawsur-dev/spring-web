@@ -17,6 +17,9 @@ public class UserDetail {
     @Column(name = "mother_name")
     private String motherName;
 
+    @OneToOne(mappedBy = "userDetail")
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -39,5 +42,13 @@ public class UserDetail {
 
     public void setMotherName(String motherName) {
         this.motherName = motherName;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -37,8 +37,9 @@
 
         <table>
             <tr>
-                <th><a>Father Name</a></th>
-                <th><a>Mother Name</a></th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>User Name</th>
                 <th>Action</th>
             </tr>
 
@@ -55,6 +56,7 @@
                 <tr>
                     <td> ${userDetail.fatherName} </td>
                     <td> ${userDetail.motherName} </td>
+                    <td> ${userDetail.user.firstName} ${userDetail.user.lastName} </td>
                     <td>
                         <a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a>
                     </td>

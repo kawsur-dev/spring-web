@@ -42,10 +42,10 @@
 
         <table>
             <tr>
-                <th><a>First Name</a></th>
-                <th><a>Last Name</a></th>
-                <th><a>Father Name</a></th>
-                <th><a>Mother Name</a></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
                 <th>Action</th>
             </tr>
 
