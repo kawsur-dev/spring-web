@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user_detail")
@@ -19,6 +20,9 @@ public class UserDetail {
 
     @OneToOne(mappedBy = "userDetail")
     private User user;
+
+    @OneToMany(mappedBy = "userDetail")
+    private List<UserContact> userContacts;
 
     public Long getId() {
         return id;
@@ -50,5 +54,13 @@ public class UserDetail {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<UserContact> getUserContacts() {
+        return userContacts;
+    }
+
+    public void setUserContacts(List<UserContact> userContacts) {
+        this.userContacts = userContacts;
     }
 }
