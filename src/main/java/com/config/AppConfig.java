@@ -4,6 +4,7 @@ package com.config;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -30,6 +31,7 @@ public class AppConfig implements WebMvcConfigurer {
                 .addResourceLocations("/css");
     }
 
+    @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setPrefix("/WEB-INF/view/");
@@ -37,6 +39,7 @@ public class AppConfig implements WebMvcConfigurer {
         return internalResourceViewResolver;
     }
 
+    @Bean
     public DataSource dataSource() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setDatabaseName("hibernate_tutorial");
@@ -46,7 +49,8 @@ public class AppConfig implements WebMvcConfigurer {
         return dataSource;
     }
 
-    public SessionFactory sessionFactory() {
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("com.model");
@@ -54,12 +58,13 @@ public class AppConfig implements WebMvcConfigurer {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.setProperty("show_sql", "true");
         sessionFactory.setHibernateProperties(properties);
-        return sessionFactory.getObject();
+        return sessionFactory;
     }
 
+    @Bean
     public PlatformTransactionManager transactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory());
+        transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }
 }
