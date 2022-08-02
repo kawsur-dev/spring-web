@@ -46,13 +46,10 @@ public class UserController {
         return "create-user-form";
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "create-user-form";
-        }
+    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = {"application/json"})
+    public String create(@RequestBody User user) {
         userService.save(user);
-        return "redirect:/user/list";
+        return "Data Saved Successfully";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.GET)
