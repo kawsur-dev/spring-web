@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -30,11 +30,13 @@ public class UserController {
     }
 
     @RequestMapping("/list")
-    public String list(Model model, @RequestParam(required = false) String sortKey) {
-        List<User> users = new ArrayList<>();
-        users = userService.getAll();
-        model.addAttribute("users", users);
-        return "user-list";
+    public List<User> list(Model model, @RequestParam(required = false) String sortKey) {
+        return userService.getAll();
+    }
+
+    @RequestMapping("/list/{id}")
+    public User getUser(@PathVariable("id") Integer id) {
+        return userService.get(id);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
