@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.model.User;
-import com.service.UserDetailService;
 import com.service.UserService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +18,9 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final UserDetailService userDetailService;
 
-    public UserController(UserService userService, UserDetailService userDetailService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userDetailService = userDetailService;
     }
 
     @InitBinder
