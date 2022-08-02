@@ -1,9 +1,5 @@
 package com.service;
 
-import com.model.User;
-import com.model.UserDetail;
-import sun.util.resources.cldr.mg.LocaleNames_mg;
-
 import java.util.List;
 
 public interface UserDetailService {

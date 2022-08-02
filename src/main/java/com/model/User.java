@@ -20,10 +20,6 @@ public class User {
     @NotNull
     private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "user_detail_id")
-    private UserDetail userDetail;
-
     public int getId() {
         return id;
     }
@@ -48,21 +44,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public UserDetail getUserDetail() {
-        return userDetail;
-    }
-
-    public void setUserDetail(UserDetail userDetail) {
-        this.userDetail = userDetail;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userDetail=" + userDetail +
                 '}';
     }
 }

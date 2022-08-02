@@ -1,9 +1,5 @@
 package com.service;
 
-import com.dao.UserContactDao;
-import com.dao.UserDetailDao;
-import com.model.UserContact;
-import com.model.UserDetail;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

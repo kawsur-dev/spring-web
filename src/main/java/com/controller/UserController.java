@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.model.User;
-import com.model.UserDetail;
 import com.service.UserDetailService;
 import com.service.UserService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -32,7 +31,6 @@ public class UserController {
     public void initBinder(WebDataBinder webDataBinder) {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
         webDataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-        webDataBinder.registerCustomEditor(UserDetail.class, new UserDetailEditor());
     }
 
     @RequestMapping("/list")
@@ -46,9 +44,7 @@ public class UserController {
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String userCreateForm(Model model) {
         User user = new User();
-        List<UserDetail> userDetails = userDetailService.getAll();
         model.addAttribute("user", user);
-        model.addAttribute("userDetails", userDetails);
         return "create-user-form";
     }
 
@@ -64,9 +60,7 @@ public class UserController {
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String userUpdateForm(@RequestParam("userId") int id, Model model) {
         User user = userService.get(id);
-        List<UserDetail> userDetails = userDetailService.getAll();
         model.addAttribute("user", user);
-        model.addAttribute("userDetails", userDetails);
         return "update-user-form";
     }
 
@@ -87,19 +81,5 @@ public class UserController {
         List<User> users = userService.getAll(firstname);
         model.addAttribute("users", users);
         return "user-list";
-    }
-
-    class UserDetailEditor extends PropertyEditorSupport {
-
-        @Override
-        public void setAsText(String text) throws java.lang.IllegalArgumentException {
-            UserDetail userDetail = userDetailService.get(Long.parseLong(text));
-            if (userDetail != null) {
-                this.setValue(userDetail);
-                return;
-            }
-            throw new java.lang.IllegalArgumentException(text);
-        }
-
     }
 }

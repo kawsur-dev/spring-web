@@ -1,8 +1,5 @@
 package com.service;
 
-import com.model.UserContact;
-import com.model.UserDetail;
-
 import java.util.List;
 
 public interface UserContactService {
